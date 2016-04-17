@@ -80,19 +80,46 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="##第一章 Activity的生命周期和启动模式
+
+生命周期全面分析
+典型情况 : 正常情况启动Activity
+第一次启动某个特定Activity,回调:onCreate()-&amp;gt;onStart()-&amp;gt; onResume()
+
+
+
+
+
+    2. 用户打开新的Activity或者切换到桌面，回调如下:onPause()-&amp;gt; onStop(),如果Activity采用了透明主题，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/17/hello-world/index.html">
+<meta property="og:title" content="sp不会玩ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/艺术探索读书笔记/第一章/第一章/index.html">
 <meta property="og:site_name" content="sp不会玩ps">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-17T01:54:00.245Z">
+<meta property="og:description" content="##第一章 Activity的生命周期和启动模式
+
+生命周期全面分析
+典型情况 : 正常情况启动Activity
+第一次启动某个特定Activity,回调:onCreate()-&amp;gt;onStart()-&amp;gt; onResume()
+
+
+
+
+
+    2. 用户打开新的Activity或者切换到桌面，回调如下:onPause()-&amp;gt; onStop(),如果Activity采用了透明主题，">
+<meta property="og:updated_time" content="2016-04-06T06:50:37.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="sp不会玩ps">
+<meta name="twitter:description" content="##第一章 Activity的生命周期和启动模式
+
+生命周期全面分析
+典型情况 : 正常情况启动Activity
+第一次启动某个特定Activity,回调:onCreate()-&amp;gt;onStart()-&amp;gt; onResume()
+
+
+
+
+
+    2. 用户打开新的Activity或者切换到桌面，回调如下:onPause()-&amp;gt; onStop(),如果Activity采用了透明主题，">
 
 
 
@@ -110,7 +137,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | sp不会玩ps </title>
+  <title>  | sp不会玩ps </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +287,7 @@ Quick">
             
             
               
-                Hello World
+                
               
             
           </h1>
@@ -272,7 +299,7 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-17T09:54:00+08:00" content="2016-04-17">
+            <time itemprop="dateCreated" datetime="2016-04-17T11:45:44+08:00" content="2016-04-17">
               2016-04-17
             </time>
           </span>
@@ -300,15 +327,103 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##第一章 Activity的生命周期和启动模式</p>
+<ol>
+<li>生命周期全面分析<ol>
+<li><strong>典型情况</strong> : 正常情况启动Activity<ol>
+<li>第一次启动某个特定Activity,回调:onCreate()-&gt;onStart()-&gt; onResume()</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>    2. 用户打开新的Activity或者切换到桌面，回调如下:onPause()-&gt; onStop(),如果Activity采用了透明主题，当前Activity不会调用onStop().
+
+
+    3. 再次回到原来的Activity时，调用如下:onRestart-&gt;onStart()-&gt;onResume()
+
+
+    4. onStart()、onStop()是从Activity是否可见的角度来回调的，onResume、onPause()是从是否位于前台的角度来回调的。
+
+
+    5. 当前Acitivity为A,此时用户打开了一个新的Activity为B.此时A、B各自的调用顺序. onPause(A)-&gt;onCreate(B)-&gt;onStart(B)-&gt;onResume(B)-&gt;onStop(A)
+
+
+    6. 不能在onPause()、onStop()中做耗时操作。资源回收等操作应该在onStop()中操作
+
+2. **异常情况** ：例如屏幕旋转、系统配置发生变化，资源内存不足导致低优先级的Acitivity被杀死。
+    1. 系统配置发生改变后，Activity会被销毁，系统会调用onSaveInstanceState()来保存当前Acitiviyt的状态，该方法在onStop()之前调用，onPause()前后都有可能。当Activity被重新创建后，系统会调用onRestoreInstanceState()，该方法在onStart()之后调用。
+    ![Activity异常情况重建过程](http://i.imgur.com/7xJA5pg.png)
+
+    2. Activity销毁被重建，获取之前的存储，接收的位置可以是onCreate()或者onRestoreInstanceState()了，两者的区别，onRestoreInstanceState()一旦被调用，其参数Bundle savedInstanceState一定是有值的。onCreate()不行，onCreate()正常启动savedInstanceState为空。所以必须要进行额外判断。
+
+    3. onSaveInstanceState 方法还有一点需要说明，那就是系统只会在Activity即将被销毁并且有机会重新显示的情况下才会调它。例如，屏幕发生旋转。Activity正常销毁不会调用。
+
+    4. Acitivity优先级情况
+        1. 前台Activity. 正与用户交互，优先级最高。
+        2. 可见非前台Acitivity . 比如Activity弹出一个对话框，导致Acitivity可见但是位于后台无法与用户直接交互。
+        3. 后台Activity. 已经被暂停的Activity ，优先级最低。
+
+    5. 某项内容发生改变后，不想系统重新创建Acitivity.可以给Acitivity指定configChanges属性。例如：
+        &gt; android:configChanges=&quot;orientation&quot;
+</code></pre><ol>
+<li><p>Acitivity的启动模式</p>
+<ol>
+<li><p>各种启动模式:</p>
+<ol>
+<li><p>standard模式： 该模式下，，谁启动了这个Acitivity,那么这个Activity就运行在启动它的那个Acitivity所在的栈中。 <strong>由于非Activity类型的Context（例如ApplicationContext）并没有的所谓的任务栈。解决这个问题的方法就是为待启动Activity指定FLAG_ACTIVITY_NEW_TASK标记位，这样启动的时候就会为它创建一个的新的任务栈。</strong></p>
+</li>
+<li><p>singleTop模式:栈顶复用模式，如果新的Activity已经位于任务栈顶，此Activity不会被重新创建，同时它的onNewIntent（）方法会被回调。这个Activity的onCreate() 、onStart() 、onResume()方法不会被调用。</p>
+</li>
+<li><p>singleTask模式:栈内复用模式。常见的几种情况:</p>
+<ol>
+<li><p>当前任务栈S1中的情况为:ABC,这个时候Activity D以singleTask模式请求启动，所需要的任务栈为S2,由于S2和D都不存在，所以系统会先创建任务栈S2，然后再创建D的实例将其压入栈S2</p>
+</li>
+<li><p>假设D所需要的任务栈为S1,由于S1已经存在，所以系统会直接创建D的实例并将其入栈到S1.</p>
+</li>
+<li><p>如果D所需要的任务栈为S1,当前任务栈S1的情况为ADBC,此时D不会被重新创建，系统会把D切换到栈顶并调用其onNewIntent方法。同时D上面所有的Activity全部出栈。</p>
+<blockquote>
+<ol>
+<li>假设目前有两个任务栈，前台任务栈的情况为AB，后台任务栈的情况为CD，假设CD的启动模式均为singleTask,现在请求D,那么整个后台任务栈都会被切换到前台，这个时候整个后退列表变成了ABCD，当用户按back 时，列表的Activity会一一出栈.  </li>
+<li>和上面情况一样，当请求启动的是C，那么后台任务栈的D先出栈，然后，后台任务栈会切换到前台，整个后退列表变成了ABC</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>SingleInstance:单实例模式:此种模式的Acitivity只能单独地位于一个任务栈。比如Activity A是singleInstance 模式，当A启动后，系统会为它建一个新的任务栈。然后A单独在这个新的任务栈中，由于栈内复用的特性，后序均不会创建新的任务栈。</p>
+</li>
+<li><p>什么是任务栈?<br>TaskAffinity,任务相关性。标识一个Activity所需要的任务栈的名字。默认情况下，所需要的任务栈的名字为应用的包名。<br>TaskAffinity主要和singleTask启动模式或者allowTaskReparenting属性相配对使用。<br>任务栈分为前台和后台任务栈，后台任务栈Activity位于暂停状态，用户可以通过切换将后台任务栈再次调用到前台。  </p>
+<ol>
+<li>和singleTask启动模式使用<br> 待启动的Activity会运行在名字和TaskAffinity相同的任务栈中。</li>
+<li>和alloTaskReparenting结合<br> 比如现在有两个应用A、B。A启动了B一个ActivityC，然后，按Home键回到了桌面，然后再单击B的桌面图标，这个时候并不是启动了B的主Activity.而是重新显示已经被应用A启动的AtivityC。<br> 由于A启动了C,这个时候ActivityC只能运行在A的任务栈中，但是C属于B应用，正常情况下，它的TaskAffinity不可能和A的任务栈相同，所以B被启动后，B会创建自己的任务栈，这个时候系统发现C原本想要的任务栈已经被创建了了，所以就把C从A的任务栈中转移过来了。</li>
+</ol>
+</li>
+<li>给Activity指定启动模式？<ol>
+<li>通过AndroidMenifest指定</li>
+<li>通过在Intent中设置标志位来为Activity指定启动模式。  <blockquote>
+<p>两者区别：<br>1.标志位优先级更高。<br>2.第一种无法设定FLAG_ACTIVITY_CLEAR_TOP,第二种无法指定singleInstance模式。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Ativity 的flags</p>
+<blockquote>
+<p>Activity 的flags有很多。常用作用，比如设定启动模式，还有的可以影响Activity的运行状态</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>IntentFilter 的匹配规则</p>
+<ol>
+<li>action匹配规则<br> action的匹配要求Intent中的action存在且必须和过滤规则中的其中一个action相同。</li>
+<li>category匹配规则<br> 与action匹配过程不同的是，action要求Intent中必须有一个action且必须能够和过滤规则中的某个action相同，而category要求intent中可以没有category，但是如果你一旦有category，不管有几个，每个都要能够和过滤规则中的任何一个category相同。</li>
+<li>data匹配规则<br> data匹配规则和action类似，它也要求Intent中必须含有data数据，并且data数据能够完全匹配过滤规则中的某一个data。</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -332,11 +447,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/17/艺术探索读书笔记/《Android开发艺术探索》书中源码/android-art-res-master/README/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/17/艺术探索读书笔记/《Android开发艺术探索》书中源码/android-art-res-master/README/" rel="prev" title="">
+              <a href="/2016/04/17/艺术探索读书笔记/第七章/第七章/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -458,7 +577,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

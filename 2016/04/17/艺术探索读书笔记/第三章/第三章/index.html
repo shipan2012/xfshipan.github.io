@@ -1,0 +1,839 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="第三章View的事件体系
+View基础知识
+
+什么是View? View是Android中所有控件的基类。View是一种界面层控件的一种抽象，它代表了一个控件。ViewGroup也是继承自View
+View的位置参数 View 的位置主要是由它的四个顶点来决定的，分别对应于View的四个属性：top、left、right、bottom.这些坐标都是相对于View的父容器来说的，是一种相对坐标。
+M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sp不会玩ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/艺术探索读书笔记/第三章/第三章/index.html">
+<meta property="og:site_name" content="sp不会玩ps">
+<meta property="og:description" content="第三章View的事件体系
+View基础知识
+
+什么是View? View是Android中所有控件的基类。View是一种界面层控件的一种抽象，它代表了一个控件。ViewGroup也是继承自View
+View的位置参数 View 的位置主要是由它的四个顶点来决定的，分别对应于View的四个属性：top、left、right、bottom.这些坐标都是相对于View的父容器来说的，是一种相对坐标。
+M">
+<meta property="og:updated_time" content="2016-04-10T12:03:03.911Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sp不会玩ps">
+<meta name="twitter:description" content="第三章View的事件体系
+View基础知识
+
+什么是View? View是Android中所有控件的基类。View是一种界面层控件的一种抽象，它代表了一个控件。ViewGroup也是继承自View
+View的位置参数 View 的位置主要是由它的四个顶点来决定的，分别对应于View的四个属性：top、left、right、bottom.这些坐标都是相对于View的父容器来说的，是一种相对坐标。
+M">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>  | sp不会玩ps </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">sp不会玩ps</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-leaf fa-fw"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T11:45:44+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第三章View的事件体系"><a href="#第三章View的事件体系" class="headerlink" title="第三章View的事件体系"></a>第三章View的事件体系</h3><ol>
+<li><p>View基础知识</p>
+<ol>
+<li>什么是View?<br> View是Android中所有控件的基类。View是一种界面层控件的一种抽象，它代表了一个控件。ViewGroup也是继承自View</li>
+<li>View的位置参数<br> View 的位置主要是由它的四个顶点来决定的，分别对应于View的四个属性：top、left、right、bottom.这些坐标都是相对于View的父容器来说的，是一种相对坐标。</li>
+<li><p>MotionEvent 和 TouchSlop</p>
+<ol>
+<li><p>MotionEvent</p>
+<blockquote>
+<p>手指解除屏幕后所产生的一系列事件中，典型的事件类型有如下几种：  </p>
+</blockquote>
+<ol>
+<li>ACTION_DOWN-手指刚接触屏幕</li>
+<li>ACTION_MOVE-手指在屏幕上移动</li>
+<li><p>ACTION-UP-手指从屏幕上松开的一瞬间</p>
+<blockquote>
+<p>正常情况下，一次手指触摸屏幕的行为会触发一些列点击事件，考虑有如下几种:  </p>
+</blockquote>
+</li>
+<li><p>点击屏幕后松开:事件序列为DOWN-&gt;UP</p>
+</li>
+<li>点击屏幕滑动一会再松开，事件序列DOWN-&gt;MOVE-&gt;..-&gt;UP</li>
+</ol>
+</li>
+<li><p>TouchSlop  </p>
+<blockquote>
+<p>TouchSlop是系统所能识别出的被认为是滑动最小的距离。这是一个常量，和设备有关，在不同的设备上，值可能有所不同。 通过ViewConfiguration.get(getContext()).getScaledTouchSlop().</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>VelocityTracker 、GestureDetector 和Scroller<ol>
+<li>VelocityTracker<br> 速度追踪，用于追踪手指在滑动过程中的速度，包括水平和竖直方向上的速度。</li>
+<li>GestureDetector<br> 手势检测，用户辅助检测用户的单击、滑动、长按、双击等行为。参考建议: 如果只是监听滑动相关的，建议自己在onTouchEvent中实现，如果要监听双击这种行为，那么使用GestureDector</li>
+<li>Scroller<br> 弹性滑动对象，用于实现View的弹性滑动。使用Scroller实现有过渡效果的滑动。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>View的滑动 </p>
+<ol>
+<li>使用scrollTo/srollBy<br> scrollBy实际上也是调用了scrollTo方法。使用srollTo和scrollBy来实现View的滑动，只能将View的内容进行移动，并不能将View本身进行移动。</li>
+<li><p>使用动画</p>
+<ol>
+<li><p>View传统动画    </p>
+<pre><code>&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:fillAfter=&quot;true&quot;
+    android:zAdjustment=&quot;normal&quot; &gt;
+
+    &lt;translate
+        android:duration=&quot;100&quot;
+        android:fromXDelta=&quot;0&quot;
+        android:fromYDelta=&quot;0&quot;
+        android:interpolator=&quot;@android:anim/linear_interpolator&quot;
+        android:toXDelta=&quot;100&quot;
+        android:toYDelta=&quot;100&quot; /&gt;
+
+&lt;/set&gt;
+</code></pre></li>
+<li><p>采用属性动画  </p>
+<pre><code>ObjectAnimator.ofFloat(targetView,&quot;translationX&quot;,0,100).setDuration(100).start()
+</code></pre><blockquote>
+<p>View动画是对View的影像操作，它并不能真正改变View的位置参数，包括宽高</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>改变布局参数<br> 改变LayoutParams里面的参数</li>
+<li>以上三种方式的对比：    <ol>
+<li>scrollTo/scrollBy：操作简单，适合对View内容的滑动，并不能滑动内容本身。</li>
+<li>动画：操作简单，主要适用于没有交互的View和实现复杂的动画效果。</li>
+<li>改变参数布局:操作稍微复杂，适用于有交互的View</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>弹性滑动  </p>
+<blockquote>
+<p>主要思想: 将一次大的滑动分成若干次小的滑动并在一个时间段内完成。</p>
+<ol>
+<li>使用Scroller<br> <strong>工作机制:</strong>scroller本身并不能实现View的滑动，它需要配合View的computeScroll方法才能完成弹性滑动效果，它不断让View重绘，而每一次重回滑动起始时间会有一个时间间隔，通过这个间隔Scroller就可以得出View当前的滑动位置，知道了滑动位置，就可以通过scrollTo方法来完成View的滑动。就这样，View的每一次重绘都会导致View进行小幅度的滑动，而小幅度的滑动就组成了弹性滑动。</li>
+<li>通过动画<br> 动画本身就是一种渐进的过程，因此通过它来实现的滑动天然就具有弹性效果。动画的本质上没有作用于任何对象上，它只是在1000ms内完成了整个动画过程。利用这个特性，我们就可以在动画的每一帧到来时获取动画完成的比例，然后再根据这个比例计算出当前view所要滑动的距离。</li>
+<li>使用延时操作<br> <strong>核心思想:</strong>通过发送一系列延时消息从而达到一种渐进式的效果，具体来说可以是使用Handler或View的postDelayed方法，也可以使用线程的sleep方法。对于postDelayed方法来说，我们可以通过它来延时发送一个消息，然后在消息中来进行view滑动，如果接连不断地发送这种延时消息，那么就可以实现弹性滑动的效果。对于sleep方法来说，通过在while循环中不断地滑动view和sleep，就可以实现弹性滑动的效果。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>View的事件分发机制  </p>
+<blockquote>
+<p>View的一个难题是滑动冲突，它的理论基础就是事件分发机制，因此掌握好事件分发机制。  </p>
+<ol>
+<li>点击事件的传递规则<br>点击事件的分发过程由三个很重要的方法来完成：dispatchTouchEvent、onInterceptTouchEvent和onTouchEvent<ol>
+<li>dispatchTouchEvent(MotionEvent event): 用来进行事件分发。如果事件能够传递当前View，那么此方法一定会被调用，返回结果受当前view的onTouchEvent和下级的dispatchTouchEvent方法的影响，表示是否消耗当前的事件。</li>
+<li>onInterceptTouchEvent(MotionEvent event) 用来判断是否拦截某个view如果当前View拦截了某个事件，那么在同一个事件序列中，此方法不会再次被调用，返回结果表示是否拦截此当前事件。</li>
+<li>onTouchEvent(MotionEvent event) 用来处理点击事件，返回结果表示是否消耗当前事件，如果不消耗，在同一事件序列中，当前view无法再次接收到事件。</li>
+<li>三个方法之间的关系,用如下伪代码表示:</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<pre><code>         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+                boolean consume = false;
+                //如果当前view拦截事件
+                if (onInterceptTouchEvent(motionEvent)) {
+                    //当前view是否消耗当前事件
+                    consume = onTouchEvent(motionEvent);
+                } else {
+                    //不拦截,问子结点
+                    consume = child.dispatchTouchEvent(motionEvent);
+                }
+                return consume;
+            }
+
+5. 点击事件的传递规则:  
+    对于一个根ViewGroup来说，点击事件产生后，首先会传递给它，这是它的dispatchTouchEvent就会被调用，如果这个ViewGroup的onInterceptTouchEvent方法返回true，表示它要拦截当前事件，接着ViewGroup的onTouchEvent方法就会被调用；如果onInterceptTouchEvent返回false，表示不拦截当前事件，这个事件就会继续传递给它的子元素，接着子元素的dispatchTouchEvent方法就会被调用，如此返回循环，直到事件最终被处理。
+6. 当一个view需要处理事件时，如果它设置了onTouchListener，那么onTouchListener中的onTouch方法会被调用,如果这个onTouch方法返回false，那么当前view的onTouch方法会被调用；返回返回true，当前view的onTouch方法则不会被调用。由此可见，onTouchListener优先级比view的onTouch方法要高。平时我们常用的onClickListener优先级最低。  
+优先级顺序: onTouchListener-&gt;view 的onTouch方法-&gt; onClickListener
+7. 当一个点击事件产生后，它的传递顺序:Actvity-&gt;Window-&gt;View.事件总是先传递给Activity、Activity再传递给Window,最后Window再传递给顶级的View。顶级View接收到事件后，就会按照事件分发机制去分发事件。如果一个view的onTouchEvent返回false，那么它的父容器的onTouchEvent将会被调用。以此类推，如果所有的元素都不处理这个事件，那么这个事件将最终传递给Activity的onTouchEvent方法。
+8. 某个View一旦决定拦截，那么这一个事件序列都只能由它来处理，并且它的onInterceptTouchEvent不会再被调用。
+9. 某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件，那么同一事件序列中的其他事件都不会再交给它来处理，并且事件将重新交给它的父元素去处理。
+</code></pre><ol>
+<li><p>事件分发的源码解析</p>
+<ol>
+<li><p>一旦事件由当前ViewGroup拦截时，ViewGroup的onInterceptTouchEvent不会再被调用，有一种特殊情况，通过reqeustDisallowInterceptTouchEvent方法设置了FLAG_DISALLOW-INTERCEPT标记位后，ViewGroup将无法拦截除了ACTION_DOWN以外的其他方法。因为ViewGroup会在ACTION_DWON事件到来时做重置状态操作。</p>
+<blockquote>
+<p>分析对我们有什么价值?</p>
+</blockquote>
+<ol>
+<li>onInterceptTouchEvent()不是每次事件都会被调用的如果我们想提前处理所有的点击事件，要选择dispatchTouchEvent方法，只有这个方法能确保每次都会被调用。前提事件能够传递到当前的ViewGroup</li>
+<li>FLAG_DISALLOW_INTERCEPT标记位的作用给我们提供了一个思路，当面对滑动冲突时，我们可以考虑用这个方法去解决问题。</li>
+</ol>
+</li>
+<li><p>ViewGroup不拦截事件时,首先遍历ViewGroup的所有子元素，然后判断子元素是否能够接收到点击事件（是否能够接收由两点衡量:1.子元素是否在播动画，2.点击事件是否落在子元素的区域内，任意一个即可）。然后接着调用子元素的dispatchTouchEvent方法，这样事件就交给了子元素处理。如果子元素的dispatchTouchEvent返回true，终止对子元素的遍历，跳出循环；如果返回false,ViewGroup就会把事件分发给下一个子元素。</p>
+</li>
+<li>如果遍历了所有的子元素后事件都没有被合理的处理（第一种:ViewGroup没有子元素；第二种子元素处理的点击事件，但是在dispatchTouchEvent返回了false，一般是子元素的onTouchEvent中返回了false。）。这两种情况下，ViewGroup会自己处理点击事件。</li>
+</ol>
+</li>
+<li><p>View对点击事件的处理过程</p>
+<ol>
+<li>先判断有没有设置onTouchListener，如果onTouchListenr中的onTouch返回true,View中onTouchEvent(event)将不会被调用</li>
+<li>view处于不可用状态下，View照样会消耗点击事件。</li>
+<li>只要View的CLICKABLE和LONG_CLICKABLE有一个为true，不管它是不是DISABLE状态，它就会消耗这个事件。</li>
+<li>setOnClickListener会自动将View的CLICKABLE设为true，setOnLongClickListener会自动将View的LONG_CLICKABLE设为true。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>View的滑动冲突  </p>
+<ol>
+<li>常见滑动冲突      <ol>
+<li>外部滑动方向和内部滑动方向不一致，例如：ViewPager中包含listView  </li>
+<li>外部滑动方向和内部滑动方向一致，例如，两个ViewPager的嵌套  </li>
+<li>上面两种情况的嵌套。  </li>
+</ol>
+</li>
+<li>滑动冲突的处理规则：<ol>
+<li>可以根据滑动路径和水平方向所形成的水平方向的夹角。</li>
+<li>在业务上找到突破口</li>
+</ol>
+</li>
+<li><p>滑动冲突的解决方式：</p>
+<ol>
+<li><p>外部拦截法：<br> 点击事件都经过服务器的拦截处理，如果父亲容器需要此事件就拦截，如果不需要此事件就不拦截，这样就可以解决滑动冲突问题。外部拦截法需要重写父容器的onInterceptTouchEvent方法，在内部做相应的拦截即可，其他均不需要做修改。伪代码如下：</p>
+<pre><code>public boolean onInterceptTouchEvent(MotionEvent event) {
+    boolean intercepted = false;
+    int x = (int) event.getX();
+    int y = (int) event.getY();
+
+    switch (event.getAction()) {
+    case MotionEvent.ACTION_DOWN: {
+        intercepted = false;
+        break;
+    }
+    case MotionEvent.ACTION_MOVE: {
+        int deltaX = x - mLastXIntercept;
+        int deltaY = y - mLastYIntercept;
+        if (父容器需要拦截当前点击事件的条件，例如：Math.abs(deltaX) &gt; Math.abs(deltaY)) {
+            intercepted = true;
+        } else {
+            intercepted = false;
+        }
+        break;
+    }
+    case MotionEvent.ACTION_UP: {
+        intercepted = false;
+        break;
+    }
+    default:
+        break;
+    }
+
+    mLastXIntercept = x;
+    mLastYIntercept = y;
+
+    return intercepted;
+} 
+</code></pre></li>
+<li><p>内部拦截法：父容器不拦截诶任何事件，所有事件都传递给子元素，如果子元素需要此事件，就消耗掉，，否则就交由父容器进行处理，这种方法和Android中的事件分发机会不一致，需要配合requestDisallowInterceptTouchEvent方法才能正常工作。伪代码如下:</p>
+<pre><code>public boolean dispatchTouchEvent(MotionEvent event) {
+    int x = (int) event.getX();
+    int y = (int) event.getY();
+
+    switch (event.getAction()) {
+    case MotionEvent.ACTION_DOWN: {]
+        getParent().requestDisallowInterceptTouchEvent(true);
+        break;
+    }
+    case MotionEvent.ACTION_MOVE: {
+        int deltaX = x - mLastX;
+        int deltaY = y - mLastY;
+        if (当前view需要拦截当前点击事件的条件，例如：Math.abs(deltaX) &gt; Math.abs(deltaY)) {
+            getParent().requestDisallowInterceptTouchEvent(false);
+        }
+        break;
+    }
+    case MotionEvent.ACTION_UP: {
+        break;
+    }
+    default:
+        break;
+    }
+
+    mLastX = x;
+    mLastY = y;
+    return super.dispatchTouchEvent(event);
+}
+</code></pre><blockquote>
+<p>除了子元素需要做处理以外，父元素也要默认拦截除了ACTION_DOWN以外的其它事件。父元素伪代码：</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code> public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+    int action = motionEvent.getAction();
+    if (action = MotionEvent.ACTION_DOWN) {
+        return false;
+    } else {
+        return true;
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/17/艺术探索读书笔记/第七章/第七章/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/17/艺术探索读书笔记/第九章/第九章/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="xfshiapn" />
+          <p class="site-author-name" itemprop="name">xfshiapn</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xfshipan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1978471290" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第三章View的事件体系"><span class="nav-number">1.</span> <span class="nav-text">第三章View的事件体系</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xfshiapn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -80,19 +80,28 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="第七章、Android动画深入分析&amp;gt; Android动画可以分为三种：View动画，帧动画、属性动画。其实帧动画也属于View动画，只不过它和平移、旋转等常见的View动画在表现形式上略有不同而已。
+
+View动画 View动画的作用对象是View，支持四种动画：平移、缩放、旋转、透明度。
+View动画的种类  
+View动画的四种变化效果对应着Animation的四个子类：Tanslate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/17/hello-world/index.html">
+<meta property="og:title" content="sp不会玩ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/艺术探索读书笔记/第七章/第七章/index.html">
 <meta property="og:site_name" content="sp不会玩ps">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-17T01:54:00.245Z">
+<meta property="og:description" content="第七章、Android动画深入分析&amp;gt; Android动画可以分为三种：View动画，帧动画、属性动画。其实帧动画也属于View动画，只不过它和平移、旋转等常见的View动画在表现形式上略有不同而已。
+
+View动画 View动画的作用对象是View，支持四种动画：平移、缩放、旋转、透明度。
+View动画的种类  
+View动画的四种变化效果对应着Animation的四个子类：Tanslate">
+<meta property="og:updated_time" content="2016-04-15T13:52:06.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="sp不会玩ps">
+<meta name="twitter:description" content="第七章、Android动画深入分析&amp;gt; Android动画可以分为三种：View动画，帧动画、属性动画。其实帧动画也属于View动画，只不过它和平移、旋转等常见的View动画在表现形式上略有不同而已。
+
+View动画 View动画的作用对象是View，支持四种动画：平移、缩放、旋转、透明度。
+View动画的种类  
+View动画的四种变化效果对应着Animation的四个子类：Tanslate">
 
 
 
@@ -110,7 +119,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | sp不会玩ps </title>
+  <title>  | sp不会玩ps </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +269,7 @@ Quick">
             
             
               
-                Hello World
+                
               
             
           </h1>
@@ -272,7 +281,7 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-17T09:54:00+08:00" content="2016-04-17">
+            <time itemprop="dateCreated" datetime="2016-04-17T11:45:44+08:00" content="2016-04-17">
               2016-04-17
             </time>
           </span>
@@ -300,15 +309,84 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="第七章、Android动画深入分析"><a href="#第七章、Android动画深入分析" class="headerlink" title="第七章、Android动画深入分析"></a>第七章、Android动画深入分析</h3><pre><code>&gt; Android动画可以分为三种：View动画，帧动画、属性动画。其实帧动画也属于View动画，只不过它和平移、旋转等常见的View动画在表现形式上略有不同而已。
+</code></pre><ol>
+<li>View动画<br> View动画的作用对象是View，支持四种动画：平移、缩放、旋转、透明度。<ol>
+<li>View动画的种类  <ol>
+<li>View动画的四种变化效果对应着Animation的四个子类：TanslateAnimation 、ScaleAnimation、RetateAnimation和AlphaAnimation。</li>
+<li>对于view动画来说，建议采用XML来定义动画，因为可读性更好。</li>
+</ol>
+</li>
+<li>帧动画<br> 帧动画是顺序播放一组预先定义好的图片，类似于电影播放。不同于View动画，系统提供了另外一个类AnimationDrawable来使用帧动画。帧动画起来容易引起OOM，所以在使用帧动画时应尽量避免使用过多尺寸较大的图片</li>
+</ol>
+</li>
+<li><p>View动画使用场景<br> 在ViewGroup中可以控制子元素的出场效果，在Activity中可以实现不同Activity之间的切换效果。</p>
+<ol>
+<li><p>LayoutAnimation<br> LayoutAnimation作用于ViewGroup，为ViewGroup指定一个动画，这样当它的子元素出场时都会具有这种动画效果。<br> 代码示例：  </p>
+<pre><code>&lt;layoutAnimation
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:delay=&quot;0.5&quot;
+    android:animationOrder=&quot;reverse&quot;
+    android:animation=&quot;@anim/anim_item&quot;/&gt;
+</code></pre><p> 属性的含义:     </p>
+<ol>
+<li>android:dely:<br> 表示子元素开始动画的时间延迟。比如子元素入场动画的时间周期是300ms，那么0.5表示每个子元素都需要延迟150ms才能播放入场动画。</li>
+<li>android:animationOrder:<br> 表示子元素的出场顺序，有三种选项：normal、reverse和random。</li>
+<li>android:animation<br> 为子元素指定具体的入场动画。  </li>
+</ol>
+</li>
+<li>Activity的切换效果  <ol>
+<li>Activity有默认的切换效果，但是这个效果可以自定义。主要用到了overridePendingTransition(int enterAnim,int exitAnim)这个方法。这个方法必须在startActivity(Intent)或者finish()之后被调用才能生效。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>属性动画 </p>
+<ol>
+<li>使用属性动画<br> 在实际开发中建议采用代码来实现属性动画，因为通过代码来实现比较简单。更重要的是，很多时候一个属性无法提前确定。逼图让一个Button从屏幕左边移动到屏幕的右边，由于我们无法提前知道屏幕的宽度，因此无法将属性动画定义在XML中，在这种情况下就必须通过代码动态地创建属性动画。</li>
+<li>理解插值器和估值器<ol>
+<li>TimeInterpolator，时间插值器，它的作用是根据时间流逝的百分比来计算出当前属性改变的百分比。系统内置的插值器有线性插值器(LinearInterpolator)、加速减速插值器(AccelerateDecelerateInterpolator)和减速插值器(DecelerateInterpolator)。</li>
+<li>TypeEvaluator,类型估值算法，它的作用是根据当前属性改变的百分比来计算改变后的属性值。系统内置的估值器有IntEvaluator、FloatEvaluator和ArgbEvaluator。</li>
+</ol>
+</li>
+<li>属性动画监听器  <pre><code>属性动画提供了监听器用于监听动画的播放过程，主要有两个接口：AnimatorUpdateListener和AnimatorListener。为了开发方便，系统提供了AnimatorListenerAdapter这个类，这是AnimatiorListener的适配器，这样我们可以有选择性的实现方法。
+</code></pre></li>
+<li><p>对任意属性做动画  </p>
+<pre><code>View不支持对宽度进行动画。
+</code></pre><ol>
+<li>属性动画的原理： <pre><code>属性动画要求动画作用的对象提供该属性的get和set方法，属性动画根据外界传递的该属性的初始值和最终值，以动画的效果多次去调用set方法，每次传递给set方法的值都不一样，确切来说随着时间的推移，所传递的值越来越接近最终值。
+</code></pre></li>
+<li><p>我们对object的属性abc做动画，如果想要动画生效，需要同时满足两个条件：</p>
+<pre><code>1. object必须提供setAbc方法，如果动画的时候没有传递初始值，那么还要提供getAbc方法，因为系统要去取abc属性的初始值。
+2. Object的setAbc属性对abc所做的改变必须更够通过某种方法反应出来，比如会带来UI的改变之类的。
+</code></pre></li>
+<li><p>对Button的width属性做动画没有效果？  </p>
+<pre><code>因为Button内部的setWidth并不是改变视图的大小，所以Button并不满足条件2，有三种解决方法:  
+1. 给你的对象加上get和set方法，如果有权限的话。
+2. 用一个类来包装原始对象，间接为其提供get和set方法。
+3. 采用ValueAnimator，监听动画过程，自己实现属性的改变。
+</code></pre></li>
+</ol>
+</li>
+<li><p>属性动画的工作原理  </p>
+<ol>
+<li>属性动画要求动画的作用的对象提供该属性的set方法，属性动画根据你传递的该属性的初始值和最终值，以动画的效果多次去调用set方法。每次传递个set方法的值都不一样，确切来说，随着时间的推移，所传递的值越来越接近最终值。</li>
+<li>属性动画需要运行在有Looper的线程中。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>是使用动画注意事项  </p>
+<ol>
+<li>OOM：尽量避免使用帧动画，使用的话应尽量避免使用过多尺寸较大的图片；</li>
+<li>内存泄露：属性动画中的无限循环动画需要在Activity退出的时候及时停止，否则将导致Activity无法释放而造成内存泄露。view动画不存在这个问题；<br>3.兼容性问题：某些动画在3.0以下系统上有兼容性问题；</li>
+<li>view动画的问题：view动画是对view的影像做动画，并不是真正的改变view的状态，因此有时候动画完成之后view无法隐藏，即setVisibility(View.GONE)失效了，此时需要调用view.clearAnimation()清除view动画才行。</li>
+<li>不要使用px；</li>
+<li>动画元素的交互：在android3.0以前的系统上，view动画和属性动画，新位置均无法触发点击事件，同时，老位置仍然可以触发单击事件。从3.0开始，属性动画的单击事件触发位置为移动后的位置，view动画仍然在原位置；</li>
+<li>硬件加速：使用动画的过程中，建议开启硬件加速，这样会提高动画的流畅性。</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -332,11 +410,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/17/艺术探索读书笔记/第一章/第一章/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/17/艺术探索读书笔记/《Android开发艺术探索》书中源码/android-art-res-master/README/" rel="prev" title="">
+              <a href="/2016/04/17/艺术探索读书笔记/第三章/第三章/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -458,7 +540,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第七章、Android动画深入分析"><span class="nav-number">1.</span> <span class="nav-text">第七章、Android动画深入分析</span></a></li></ol></div>
             
           </div>
         </section>

@@ -80,19 +80,44 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="第二章 IPC机制
+Android IPC简介
+
+IPC 含义为进程间通信，是指两个进程间进行数据交换的过程。在Android 中最有特色的进程间通信方式就是Binder,通过Binder可以轻松地实现进程间通信。同时，Android还支持Socket通信
+
+
+Android中的多进程模式
+
+开启多进程模式 方法只有一个，就是在AndroidMenifest中给四大组件指定android:proc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/17/hello-world/index.html">
+<meta property="og:title" content="sp不会玩ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/艺术探索读书笔记/第二章/第二章/index.html">
 <meta property="og:site_name" content="sp不会玩ps">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-17T01:54:00.245Z">
+<meta property="og:description" content="第二章 IPC机制
+Android IPC简介
+
+IPC 含义为进程间通信，是指两个进程间进行数据交换的过程。在Android 中最有特色的进程间通信方式就是Binder,通过Binder可以轻松地实现进程间通信。同时，Android还支持Socket通信
+
+
+Android中的多进程模式
+
+开启多进程模式 方法只有一个，就是在AndroidMenifest中给四大组件指定android:proc">
+<meta property="og:image" content="http://i.imgur.com/ZE2APJG.png">
+<meta property="og:image" content="http://i.imgur.com/cx0fkLl.png">
+<meta property="og:image" content="http://i.imgur.com/s3cQRVf.png">
+<meta property="og:updated_time" content="2016-04-08T12:26:21.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="sp不会玩ps">
+<meta name="twitter:description" content="第二章 IPC机制
+Android IPC简介
+
+IPC 含义为进程间通信，是指两个进程间进行数据交换的过程。在Android 中最有特色的进程间通信方式就是Binder,通过Binder可以轻松地实现进程间通信。同时，Android还支持Socket通信
+
+
+Android中的多进程模式
+
+开启多进程模式 方法只有一个，就是在AndroidMenifest中给四大组件指定android:proc">
+<meta name="twitter:image" content="http://i.imgur.com/ZE2APJG.png">
 
 
 
@@ -110,7 +135,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | sp不会玩ps </title>
+  <title>  | sp不会玩ps </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +285,7 @@ Quick">
             
             
               
-                Hello World
+                
               
             
           </h1>
@@ -272,7 +297,7 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-17T09:54:00+08:00" content="2016-04-17">
+            <time itemprop="dateCreated" datetime="2016-04-17T11:45:44+08:00" content="2016-04-17">
               2016-04-17
             </time>
           </span>
@@ -300,15 +325,92 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="第二章-IPC机制"><a href="#第二章-IPC机制" class="headerlink" title="第二章 IPC机制"></a>第二章 IPC机制</h2><ol>
+<li><p>Android IPC简介</p>
+<blockquote>
+<p>IPC 含义为进程间通信，是指两个进程间进行数据交换的过程。<br>在Android 中最有特色的进程间通信方式就是Binder,通过Binder可以轻松地实现进程间通信。同时，Android还支持Socket通信</p>
+</blockquote>
+</li>
+<li><p>Android中的多进程模式</p>
+<ol>
+<li><p>开启多进程模式<br> 方法只有一个，就是在AndroidMenifest中给四大组件指定android:process属性。  </p>
+<ol>
+<li>“com.ryg.chapter_2.remote”<br> 这是一种完整的命名方式，属于全局进程，其他应用可以通过ShareUID方式可以和它跑在同一个进程。</li>
+<li>“com.ryg.chapter_2:remote”<br> 是指在当前进程名前面附加上当前的包名，这是一种简写的方法。进程名以”:”开头的进程属于当前应用的私有进程，其他应用进程不可以和它跑同一个进程。  </li>
+</ol>
+</li>
+<li><p>多进程模式的运行机制</p>
+<ol>
+<li>Android为每一个应用分配了一个独立的虚拟机，或者说为每个进程都分配一个独立的虚拟机不同的虚拟机在内存分配上有不同的地址空间，这就导致在不同的虚拟机中访问同一个类的对象会产生多个副本。</li>
+<li>所有运行在不同进程中的四大组建爱你，只要它们只要需要通过内存来共享数据，都会共享失败，这也是多进程带来的影响。</li>
+<li><p>多进程造成的问题：</p>
+<ol>
+<li>静态成员和单例模式完全失效</li>
+<li>线程同步机制完全失效</li>
+<li>SharePreference可靠性降低</li>
+<li>Application会多次创建</li>
+</ol>
+</li>
+<li><p>多模式中，不同进程的组件会拥有独立的虚拟机、Application、以及内存空间。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>IPC基础概念 </p>
+<ol>
+<li>Serializable接口<ol>
+<li>采用Serializable方式序列化对象，只需要把实现了Serializable接口的对象写入到文件中就可以快速恢复了，恢复后的对象和之前的对象<strong>内容</strong>完全一样，但是两者并不是同一个对象。</li>
+<li>serialVersionUID的工作机制:序列化的时候，系统会把当前类的serialVersionUID写入到序列化的文件中，当反序列化的时候，系统会去检测文件中的serialVersionUID，看它是否和当前类的serialVersionUID一致，如果一致就说明序列化的版本和当前的版本是相同的，可以成功反序列化。否则说明发生了变化。</li>
+<li>静态成员变量属于类，不属于对象，所以不会参与序列化过程。其次使用了transient关键字标记的成员变量不参与序列化过程。</li>
+</ol>
+</li>
+<li><p>Parcelable接口</p>
+<ol>
+<li>Android提供的新的序列化接口。</li>
+<li>Itent、Bundle、Bitmap都实现了Parcelable接口。</li>
+</ol>
+</li>
+<li><p>Binder</p>
+<ol>
+<li>工作机制:<br> <img src="http://i.imgur.com/ZE2APJG.png" alt="Binder工作机制"></li>
+</ol>
+</li>
+<li><p>Android 中的IPC方式</p>
+<ol>
+<li>使用Bundle<br> 传输的数据必须能够被序列化，比如基本数据类型，实现了Parcellable接口的对象，实现了Seriallizable接口的对象，以及一些Android支持的特殊对象。</li>
+<li>使用文件共享<br> Android 系统基于Linux，使得其并发读写文件可以没有限制的进行，甚至两个线程同时对一个文件进行写操作都是允许的。<br> 文件共享方式适合在对数据同步要求不高的进程之间进行通信。不建议在进程间通信中使用SharedPreferences</li>
+<li>使用 Messager<br> Messager一次处理一个请求，因此在服务端不用考虑线程同步问题。 <img src="http://i.imgur.com/cx0fkLl.png" alt="Message工作原理"></li>
+<li>使用AIDL<br> 使用AIDL跨进程调用服务端方法<ol>
+<li>进程间通信的流程<ol>
+<li>服务端：<br>服务端首先要创建一个Service用来监听客户端的连接请求，然后创建一个AIDL文件，将暴露给客户端的接口在这个AIDL文件中声明，最后在Service中实现这个AIDL接口即可</li>
+<li>客户端:<br>客户端首先绑定服务端的Service，绑定成功后，将服务端返回的Binder对象转成AIDL接口所属的类型，接着就可以调用AIDL中的方法了。</li>
+</ol>
+</li>
+<li>实现解注册功能:<br> RemoteCallbckList是系统专门提供用于删除跨进程listener的接口。RemoteCallbackList 内部自动实现了线程同步功能，使用它来注册和解注册时，不需要做额外的线程同步工作。</li>
+<li>重新连接远程服务<ol>
+<li>给Binder设置DeathRecipient监听，当Binder死亡时，我们会收到binderDied方法的回调，在binderDied方法中，我们可以重新连接远程服务。</li>
+<li>在onServiceDisconnected中重新连接远程服务。</li>
+<li>以上两种方法的区别，onServiceDisconnected在客户端的UI线程中被回调。binderDied在客户端的Binder线程池中被回调。</li>
+</ol>
+</li>
+<li>在AIDL中设置权限功能<ol>
+<li>使用permission验证，在onBind中验证，验证不通过，返回null</li>
+<li>在服务端的onTransact方法中进行权限验证，验证失败返回false。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>使用ContentProvider </li>
+<li>使用socket</li>
+</ol>
+</li>
+<li><p>Binder线程池<br> 工作机制:<br> 每个验证模块创建自己的AIDL接口并实现此接口，这个时候不同业务模块之间不能有耦合，所有的实现细节要单独分开，然后向客户端提供自己的唯一标识和对应的Binder对象；对于服务端来说，只需要一个Service就可以了，服务端提供一个queryBinder接口，这个接口能够根据业务模块的特征来返回相应的Binder给他们，不同业务模块拿到所需要的Binder对象就可以进行远程方法的调用了。  </p>
+<p>6.选择合适的IPC方式<br><img src="http://i.imgur.com/s3cQRVf.png" alt="IPC方式优缺点"></p>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -332,11 +434,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/17/艺术探索读书笔记/第九章/第九章/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/17/艺术探索读书笔记/《Android开发艺术探索》书中源码/android-art-res-master/README/" rel="prev" title="">
+              <a href="/2016/04/17/艺术探索读书笔记/第五章/第五章/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -458,7 +564,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-IPC机制"><span class="nav-number">1.</span> <span class="nav-text">第二章 IPC机制</span></a></li></ol></div>
             
           </div>
         </section>

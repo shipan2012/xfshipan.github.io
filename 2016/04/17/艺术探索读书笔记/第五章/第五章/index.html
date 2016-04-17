@@ -1,0 +1,802 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="###第五章、理解RemoteView
+
+RemoteView在Android中的使用场景有两种:通知栏和桌面小部件。
+
+
+RemoteViews的应用 RemoteViews在实际开发中，主要用在通知栏和桌面小部件的开发过程中。主要是通过NotificationManager的notify方法实现的。桌面小部件则是通过AppWidgetProvider来实现的。AppWidgetProvider">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sp不会玩ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/艺术探索读书笔记/第五章/第五章/index.html">
+<meta property="og:site_name" content="sp不会玩ps">
+<meta property="og:description" content="###第五章、理解RemoteView
+
+RemoteView在Android中的使用场景有两种:通知栏和桌面小部件。
+
+
+RemoteViews的应用 RemoteViews在实际开发中，主要用在通知栏和桌面小部件的开发过程中。主要是通过NotificationManager的notify方法实现的。桌面小部件则是通过AppWidgetProvider来实现的。AppWidgetProvider">
+<meta property="og:updated_time" content="2016-04-13T14:40:14.513Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sp不会玩ps">
+<meta name="twitter:description" content="###第五章、理解RemoteView
+
+RemoteView在Android中的使用场景有两种:通知栏和桌面小部件。
+
+
+RemoteViews的应用 RemoteViews在实际开发中，主要用在通知栏和桌面小部件的开发过程中。主要是通过NotificationManager的notify方法实现的。桌面小部件则是通过AppWidgetProvider来实现的。AppWidgetProvider">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>  | sp不会玩ps </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">sp不会玩ps</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-leaf fa-fw"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T11:45:44+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###第五章、理解RemoteView</p>
+<blockquote>
+<p>RemoteView在Android中的使用场景有两种:通知栏和桌面小部件。</p>
+</blockquote>
+<ol>
+<li><p>RemoteViews的应用<br> RemoteViews在实际开发中，主要用在通知栏和桌面小部件的开发过程中。主要是通过NotificationManager的notify方法实现的。桌面小部件则是通过AppWidgetProvider来实现的。AppWidgetProvider本质上是一个广播。</p>
+<ol>
+<li>RemoteViews在通知栏上的应用</li>
+<li><p>RemoteViews在桌面小部件上的应用<br> 步骤:</p>
+<ol>
+<li><p>定义小部件界面</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/imageView1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:src=&quot;@drawable/icon1&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre></li>
+<li><p>定义小部件配置信息</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;appwidget-provider xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:initialLayout=&quot;@layout/widget&quot;
+    android:minHeight=&quot;84dp&quot;
+    android:minWidth=&quot;84dp&quot;
+    android:updatePeriodMillis=&quot;86400000&quot; &gt;
+&lt;/appwidget-provider&gt;
+</code></pre></li>
+<li><p>定义小部件的实现类</p>
+<pre><code>public class MyAppWidgetProvider extends AppWidgetProvider {
+
+    public static final String TAG = &quot;MyAppWidgetProvider&quot;;
+    public static final String CLICK_ACTION = &quot;com.ryg.chapter_5.action.CLICK&quot;;
+
+    public MyAppWidgetProvider() {
+        super();
+    }
+
+    @Override
+    public void onReceive(final Context context, Intent intent) {
+        super.onReceive(context, intent);
+        Log.i(TAG, &quot;onReceive : action = &quot; + intent.getAction());
+
+        // 这里判断是自己的action，做自己的事情，比如小工具被点击了要干啥，这里是做一个动画效果
+        if (intent.getAction().equals(CLICK_ACTION)) {
+            Toast.makeText(context, &quot;clicked it&quot;, Toast.LENGTH_SHORT).show();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Bitmap srcbBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon1);
+                    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                    for (int i = 0; i &lt; 37; i++) {
+                        float degree = (i * 10) % 360;
+                        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget);
+                        remoteViews.setImageViewBitmap(R.id.imageView1, rotateBitmap(context, srcbBitmap, degree));
+                        Intent intentClick = new Intent();
+                        intentClick.setAction(CLICK_ACTION);
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intentClick, 0);
+                        remoteViews.setOnClickPendingIntent(R.id.imageView1, pendingIntent);
+                        appWidgetManager.updateAppWidget(new ComponentName(context, MyAppWidgetProvider.class),remoteViews);
+                        SystemClock.sleep(30);
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /**
+     * 每次窗口小部件被点击更新都调用一次该方法
+     */
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
+        Log.i(TAG, &quot;onUpdate&quot;);
+
+        final int counter = appWidgetIds.length;
+        Log.i(TAG, &quot;counter = &quot; + counter);
+        for (int i = 0; i &lt; counter; i++) {
+            int appWidgetId = appWidgetIds[i];
+            onWidgetUpdate(context, appWidgetManager, appWidgetId);
+        }
+    }
+
+    /**
+     * 窗口小部件更新
+     */
+    private void onWidgetUpdate(Context context, AppWidgetManager appWidgeManger, int appWidgetId) {
+        Log.i(TAG, &quot;appWidgetId = &quot; + appWidgetId);
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget);
+
+        // &quot;窗口小部件&quot;点击事件发送的Intent广播
+        Intent intentClick = new Intent();
+        intentClick.setAction(CLICK_ACTION);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intentClick, 0);
+        remoteViews.setOnClickPendingIntent(R.id.imageView1, pendingIntent);
+        appWidgeManger.updateAppWidget(appWidgetId, remoteViews);
+    }
+
+    private Bitmap rotateBitmap(Context context, Bitmap srcbBitmap, float degree) {
+        Matrix matrix = new Matrix();
+        matrix.reset();
+        matrix.setRotate(degree);
+        return Bitmap.createBitmap(srcbBitmap, 0, 0, srcbBitmap.getWidth(), srcbBitmap.getHeight(), matrix, true);
+    }
+}
+</code></pre></li>
+<li><p>在AndroidManifext.xml中声明小部件</p>
+<pre><code>&lt;receiver android:name=&quot;.MyAppWidgetProvider&quot; &gt;
+&lt;meta-data
+    android:name=&quot;android.appwidget.provider&quot;
+    android:resource=&quot;@xml/appwidget_provider_info&quot; &gt;
+&lt;/meta-data&gt;
+
+&lt;intent-filter&gt;
+    &lt;action android:name=&quot;com.ryg.chapter_5.action.CLICK&quot; /&gt;
+    &lt;action android:name=&quot;android.appwidget.action.APPWIDGET_UPDATE&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre><p> </p>
+</li>
+</ol>
+</li>
+<li><p>PendingIntent概述</p>
+<ol>
+<li>PendingIntent含义：<br> PendingIntent表示一种处于pending状态的意图，而pending表示的是一种待定、等待、即将发生的意思，就是说接下来有一个Intent将在某个特定的时刻发生。</li>
+<li>PendingIntent和Intent区别：<br> PendingIntent是将来在某个时刻发生，而Intent是立即发生。</li>
+<li>使用场景：<br> PendingIntent典型的使用场景是给RemoteViews添加单击事件，因为RemoteViews是运行在远程中，因此RemoteViews不同于普通的View，所以无法直接像View那样通过setOnClickListener方法来设置单击事件。要想给RemoteViews设置单击事件，就必须使用PendingIntent,PendingIntent通过send和cancel方法来发送和取消特定的待定intent。</li>
+<li>PendintIntent支持三种特定意图：<ol>
+<li>启动Activity:<br> getActivity(Context context,Intent intent,int requestCode,int flags)</li>
+<li>启动Service：<br> getService(Context context,Intent intent,int requestCode,int flags)</li>
+<li>发送广播:<br> getBroadcast(Context context,Intent intent,int requestCode,int flags)</li>
+</ol>
+</li>
+<li>PendingIntent的匹配规则：<br> requestCode表示PendingIentent发送方的请求码，多情况下设为0即可。requestCode会影响到flags效果。<ol>
+<li>如果两个PendingIntent它们内部的Intent相同并且requestCode也相同，那么这两个PendingIntent就是相同的。什么是Intent相同？intent的匹配规则是：如果两个Intent的ComponentName和intent-filter都相同，那么这两个Intent就是相同的。注意Extras不参与Intent的匹配过程。</li>
+<li>flag参数含义：<ol>
+<li>FLAG_ONE_SHOT<br> 当前描述的PendingIntent只能被使用一次，然后它就会被自动cancel。</li>
+<li>FLAG_NO_CREATE<br> 当前描述的PendingIntent不会主动创建。日常开发中并没有太多的使用意义。</li>
+<li>FLAG_CANCEL_CURRENT<br> 当前描述的PendingIntent如果已经存在，那么它们都会被cancel，然后系统会创建一个新的PendingIntent。对于通知栏消息来说，那些被cancel的消息单击后将无法打开。</li>
+<li>FLAG_UPDATE_CURRENT<br> 当前描述的PendingIntent如果已经存在，那么它们都会被更新。即它们的Intent中的Extras会被替换成最新的。</li>
+</ol>
+</li>
+<li>NotificationManager.nofify(id, notification) 几种情况：<ol>
+<li>如果notify第一个参数id是常量，那么不管PendingIntent是否匹配，后面的通知会直接替换前面的通知。</li>
+<li>如果notify方法的id每次都不同：<ol>
+<li>当PendingIntent不匹配时(Intent相同并且requestCode相同)，这种情况性爱不管采用何种标记位。这些通知之间不会相互干扰。</li>
+<li>如果PendingIntent处于匹配状态：<ol>
+<li>如果采用FLAG_ONE_SHOT标记位，那么后续通知中PendingIntent会后第一条通知保持一致。包括Extras，单机任何一条通知后，剩下的通知均无法再打开，当所有的通知都被消除后，会再次重复这个过程</li>
+<li>如果采用FLAG_CANCEL_CURRENT标记位，那么只有最新的通知可以打开，之前弹出的通知均无法打开</li>
+<li>如果采用了FALG_UPDATE_CURRENT标记位，那么之前弹出的通知栏中的PendingIntent给被更新，最终它们和最新的一条通知保持完全一致，包括Extras。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>RemoteViews内部机制：</p>
+<ol>
+<li>RemoteViews常用构造方法：public RemoteViews(String packageName,int layoutIedd),它接收两个参数，第第一个表示当前应用的包名，第一个表示待加载的布局文件。</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. RemoteViews只支持部分布局和View组件，下面列举的组件的子类是不支持的 :
+布局：FrameLayout、LinearLayout、RelativeLayout、GridLayout
+组件：Button、ImageButton、ImageView、TextView、ListView、GridView、ViewStub等
+
+3. RemoteViews没有提供findViewById方法，因此无法直接访问里面的View元素。必须通过RemoteViews所提供的一些列set方法来完成。
+
+
+4. 通知栏和桌面小部件分由：NotificationManager和AppWidgetManager管理。NotificationManager和AppWidgetManager通过Binder分别和SystemServer进程中的NotificationManagerService以及，AppWidgetService进行通信。由此可见，通知栏和桌面小部件中的布局文件实际上是在NotificationManagerService以及AppWidgetService中被加载的，而它们运行在系统的SystemServer中，这就和我们的进程构成了跨进程构成了跨进程通信的场景。
+
+
+5. RemoteViews实现了Parcelable接口，通过Binder传递到SystemServer进程，系统根据RemoteViews中使用的包名等信息去得到该应用的资源。然后加载布局文件。
+
+
+6. 系统会对View执行一些列界面更行任务。这些任务是通过之前的set方法提交的。RemoteViews会记录这些更新操作，RemoteViews被加载后，这些更新操作才会被执行。
+
+
+7. 系统将View操作封装到Action对象并将这些对象跨进程传输到远程进程，接着在远程进程中执行Action对象中的具体操作。
+
+
+8. 我们在应用中每调用一次set方法，RemoteViews中就会添加一个对应的Action对象，当我们提交更新时，遍历调用他们它们的apply方法来进行View的更新操作。
+
+
+9. apply和reApply的区别在于：apply会加载布局并更新界面。通知栏和桌面小插件在初始化界面时会调用apply方法，而在后续更新界面时调用reapply方法。
+
+
+10. setOnClickPendingIntent、setPendingIntentTemplate、setOnClickFillInIntent区别和联系：
+    1. setOnClickPendingIntent用于给普通View设置单击事件，但是不能给集合（ListView）中的View设置单击事件，因为开销比较大，所以禁止这种方式。
+    2. 如果要给ListView和StackView中的item添加单击事件，则必须将setPendingInntentTemplate和setOnClickFillInIntent组合使用才可以。
+</code></pre><ol>
+<li>RemoteViews意义<br> 实现了跨进程UI更新。</li>
+</ol>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/17/艺术探索读书笔记/第二章/第二章/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/17/艺术探索读书笔记/第八章/第八章/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="xfshiapn" />
+          <p class="site-author-name" itemprop="name">xfshiapn</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xfshipan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1978471290" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xfshiapn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
